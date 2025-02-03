@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Creativa</title>
+    <!-- Importar la fuente Dancing Script desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Fondo morado tipo caricatura */
+        body {
+            margin: 0;
+            height: 100vh;
+            background: radial-gradient(circle, #9b4dca, #6a1b9a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Dancing Script', cursive; /* Cambié la fuente aquí */
+            overflow: hidden;
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Recuadro central (ajustado más grande) */
+        .center-box {
+            width: 500px;  /* Aumento del tamaño */
+            height: 350px; /* Aumento del tamaño */
+            background-color: white;
+            border: 5px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: -10%; /* Alineación mejorada del recuadro */
+        }
+
+        /* Estilo para el texto dentro del recuadro */
+        .message {
+            display: none;
+            font-size: 1.5rem;
+            color: #6a1b9a;
+            text-align: center;
+        }
+
+        /* Botón de corazón centrado en el recuadro */
+        .heart-btn {
+            width: 60px;
+            height: 60px;
+            background-color: #f44336;
+            border: none;
+            cursor: pointer;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg); /* Centrado absoluto */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .heart-btn::before,
+        .heart-btn::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #f44336;
+            border-radius: 50%;
+        }
+
+        .heart-btn::before {
+            top: -30px;
+            left: 0;
+        }
+
+        .heart-btn::after {
+            top: 0;
+            left: 30px;
+        }
+
+        /* Efecto hover para el corazón */
+        .heart-btn:hover {
+            transform: translate(-50%, -50%) rotate(-45deg) scale(1.1);
+        }
+
+        /* Contenedor para los recuadros laterales (más a la izquierda y derecha) */
+        .side-boxes {
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 500px;  /* Aumento del espacio entre las cajas */
+            flex-direction: column;
+        }
+
+        /* Recuadros laterales más grandes */
+        .side-box {
+            width: 450px;  /* Tamaño mayor */
+            height: 350px; /* Tamaño mayor */
+            background-color: white;
+            border: 3px solid black;
+            margin-bottom: 20px; /* Espaciado entre recuadros */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Recuadros laterales a la izquierda */
+        .side-boxes.left {
+            left: -490px; /* Desplazado más hacia la izquierda */
+        }
+
+        /* Recuadros laterales a la derecha */
+        .side-boxes.right {
+            right: -530px; /* Desplazado mucho más hacia la derecha */
+        }
+
+        /* Recuadros inferiores de ambos lados (ajustados más cerca del recuadro central) */
+        .side-boxes .side-box:nth-child(2) {
+            margin-top: -10px; /* Ajusta el recuadro inferior izquierdo */
+        }
+
+        .side-boxes .side-box:nth-child(4) {
+            margin-top: -10px; /* Ajusta el recuadro inferior derecho */
+        }
+
+        /* Estilo para los videos */
+        .side-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Esto asegura que el video cubra todo el recuadro */
+        }
+
+        /* Estilo para el audio (música de fondo) */
+        audio {
+            display: none; /* Ocultar el reproductor de audio */
+        }
+        
+
+        /* Animación de desaparición del botón */
+        @keyframes disappear {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Agregar el audio como música de fondo (inicia en pausa) -->
+    <audio id="backgroundMusic" loop>
+        <source src="audiodefondo.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <div class="container">
+        <!-- Recuadro central -->
+        <div class="center-box">
+            <button class="heart-btn" id="heartBtn"></button>
+            <p id="message" class="message">Ola, mi niña jkaskjsk, esto es un poco raro porque nunca le había hecho algo así 
+                a un amigo, pero quiero que sepas que tú y solo tú te lo mereces, porque eres una persona muy única y una muy
+                especial para mí, de verdadn quiero que sepas que tú eres una linda persona, tanto por dentro como por fuera, 
+                te quiero mucho tal y como eres (sensible, dramática, llorona), pero sobretodo MUY TIERNA, muamua 💖💖
+                💖</p>
+        </div>
+
+        <!-- Contenedor para los recuadros laterales (izquierda) -->
+        <div class="side-boxes left">
+            <div class="side-box">
+                <video src="yoyis1.mp4" autoplay loop muted></video> <!-- Video en el recuadro izquierdo superior -->
+            </div>
+            <div class="side-box">
+                <video src="yoyis2.mp4" autoplay loop muted></video> <!-- Video en el recuadro izquierdo inferior -->
+            </div>
+        </div>
+
+        <!-- Contenedor para los recuadros laterales (derecha) -->
+        <div class="side-boxes right">
+            <div class="side-box">
+                <video src="yoyis3.mp4" autoplay loop muted></video> <!-- Video en el recuadro derecho superior -->
+            </div>
+            <div class="side-box">
+                <video src="https://youtube.com/shorts/nnSdvEocfdk?feature=share" autoplay loop muted></video> <!-- Video en el recuadro derecho inferior -->
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        // Funcionalidad para mostrar el mensaje, desaparecer el botón y reproducir la música
+        document.getElementById("heartBtn").addEventListener("click", function() {
+            document.getElementById("message").style.display = "block"; // Muestra el mensaje
+            document.getElementById("heartBtn").style.animation = "disappear 1s forwards"; // Desaparece el botón
+            document.getElementById("backgroundMusic").play(); // Reproduce la música
+        });
+    </script>
+
+</body>
+</html>
